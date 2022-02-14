@@ -1,14 +1,6 @@
 development:
-  # Configure available database clients. (required)
   clients:
-    # Defines the default client. (required)
     default:
-      # Mongoid can connect to a URI accepted by the driver:
-      # uri: mongodb://user:password@mongodb.domain.com:27017/docker_done_right_development
-
-      # Otherwise define the parameters separately.
-      # This defines the name of the default database that Mongoid can connect to.
-      # (required).
       database: docker_done_right_development
       # Provides the hosts the default client can connect to. Must be an array
       # of host:port pairs. (required)
@@ -16,12 +8,6 @@ development:
         - localhost:27017
       options:
         # Note that all options listed below are Ruby driver client options (the mongo gem).
-        # Please refer to the driver documentation of the version of the mongo gem you are using
-        # for the most up-to-date list of options.
-        #
-        # Change the default write concern. (default = { w: 1 })
-        # write:
-        #   w: 1
 
         # Change the default read preference. Valid options for mode are: :secondary,
         # :secondary_preferred, :primary, :primary_preferred, :nearest
@@ -108,7 +94,7 @@ development:
         # The file containing concatenated certificate authority certificates
         # used to validate certs passed from the other end of the connection.
         # ssl_ca_cert: /path/to/ca.cert
-        
+
         # Whether to truncate long log lines. (default: true)
         # truncate_logs: true
 
@@ -119,18 +105,18 @@ development:
     # exceed 128 bytes. It is also used as the database name if the
     # database name is not explicitly defined. (default: nil)
     # app_name: MyApplicationName
-    
+
     # Create indexes in background by default. (default: false)
     # background_indexing: false
-    
+
     # Mark belongs_to associations as required by default, so that saving a
     # model with a missing belongs_to association will trigger a validation
     # error. (default: true)
     # belongs_to_required_by_default: true
-    
+
     # Raise an exception when a field is redefined. (default: false)
     # duplicate_fields_exception: false
-    
+
     # Include the root model name in json serialization. (default: false)
     # include_root_in_json: false
 
@@ -144,7 +130,7 @@ development:
     # Set the Mongoid and Ruby driver log levels when Mongoid is not using
     # Ruby on Rails logger instance. (default: :info)
     # log_level: :info
-    
+
     # Preload all models in development, needed when models use
     # inheritance. (default: false)
     # preload_models: false
