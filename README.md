@@ -9,14 +9,11 @@ FROM ruby:3.1.0-alpine
 
 ARG RAILS_ROOT=/docker-done-right
 ARG PACKAGES="vim openssl-dev postgresql-dev mongodb-tools build-base \
-  curl less tzdata git postgresql-client bash screen"
+  curl less tzdata git postgresql-client bash"
 
 RUN apk update \
   && apk upgrade \
   && apk add --update --no-cache $PACKAGES
-
-RUN gem install bundler:2.3.7
-
 ```
 
 And run
@@ -27,3 +24,5 @@ gem install rails
 rails new docker-done-right --database=postgresql --skip-active-storage --skip-action-cable --skip-test --skip-system-test --api
 exit
 ```
+
+After that the project generated in the container appeared on my host machine.
