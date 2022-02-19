@@ -3,16 +3,15 @@ version: '3.7'
 services:
   web:
     build: .
-    volumes: &web-volumes
-      - &app-volume .:/docker-done-right:cached
-      - ~/.ssh:/root/.ssh
-      - &bundle-cache-volume bundle_cache:/bundle_cache
+    volumes:
+      - .:/docker-done-right:cached
+      - bundle_cache:/bundle_cache
     ports:
       - 3000:3000
     depends_on:
       - postgres
       - mongo
-    environment: &web-environment
+    environment:
       BUNDLE_PATH: /bundle_cache
       GEM_HOME: /bundle_cache
       GEM_PATH: /bundle_cache
@@ -20,22 +19,31 @@ services:
       DATABASE_HOST: postgres
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
-    command: bundle exec rails s -b '0.0.0.0' -p 3000
+      MONGODB_HOST: mongo
+    stdin_open: true
+    tty: true
+    command: bash
 
   postgres:
     image: postgres:14.1-alpine
+    volumes:
+      - pg_data:/var/lib/postgresql/data/pgdata
     ports:
       - 5432:5432
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
+      PGDATA: /var/lib/postgresql/data/pgdata
 
   mongo:
     image: mongo
+    volumes:
+      - mongo_data:/data/db
+    ports:
+      - 27017:27017
     restart: always
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
 
 volumes:
   bundle_cache:
+  mongo_data:
+  pg_data:
