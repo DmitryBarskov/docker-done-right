@@ -158,7 +158,7 @@ test:
     default:
       database: docker_done_right_test
       hosts:
-        - localhost:27017
+        - <%= ENV.fetch("MONGODB_HOST") { "localhost" } %>:27017
       options:
         read:
           mode: :primary
