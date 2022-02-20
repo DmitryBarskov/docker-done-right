@@ -6,7 +6,7 @@ For development purposes only
 
 1. [Why is it right?](#why-is-it-right)
 1. [Dockerfile](#Dockerfile)
-1. [docker-compose.yml](#docker-compose.yml)
+1. [docker-compose.yml](#docker-composeyml)
 1. [Final result](#final-result)
 
 ## Why is it right?
