@@ -128,7 +128,7 @@ volumes:
 
 From now on to setup the project from scratch there is only a few commands:
 
-1. Clone the projects itself: `git clone git@github.com:DmitryBarskov/docker-done-right.git`
+1. Clone the projects itself: `git clone git@github.com:DmitryBarskov/docker-done-right.git && cd docker-done-right`
 1. Run required services: `docker-compose up -d`
 1. Enter the development environment: `docker-compose exec web bash`
 1. Install the project as usual: `bin/setup`
