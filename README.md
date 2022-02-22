@@ -8,8 +8,8 @@ but it has all system dependecies installed.
 ## Index
 
 1. [Why is it right?](#why-is-it-right)
-1. [Dockerfile](#Dockerfile)
-1. [docker-compose.yml](#docker-compose.yml)
+1. [Dockerfile](#dockerfile)
+1. [docker-compose.yml](#docker-composeyml)
 1. [Final result](#final-result)
 
 ## Why is it right?
@@ -131,24 +131,12 @@ volumes:
 
 From now on to setup the project from scratch there is only a few commands:
 
-1. Clone the projects itself: `git clone git@github.com:DmitryBarskov/docker-done-right.git && cd docker-done-right`
-1. Run required services: `docker-compose up -d`
-1. Enter the development environment: `docker-compose exec web bash`
-1. Install the project as usual: `bin/setup`
-1. Ensure the tests are passing: `bin/rspec`
-1. Run the server: `bin/server`
+1. Clone the projects itself:\
+    `git clone git@github.com:DmitryBarskov/docker-done-right.git && cd docker-done-right`
+1. Setup the development environment, run tests and enter the development environment:\
+    `bin/docker`
+1. Run the server as usual (binding on 0.0.0.0 is required):\
+    `bin/server`
 
-There is a possibility to reduce the amount of commands even more writing
-a script for them:
-
-`bin/setup-in-docker`
-```bash
-#!/usr/bin/env bash
-
-set -e
-
-docker-compose up -d
-docker-compose exec web bin/setup
-docker-compose exec web bin/rspec
-docker-compose exec web bash
-```
+So there are only a few commands to get started.\
+But at the same time I can setup my project as I always do installing Ruby, PostgreSQL, etc on my host machine.
