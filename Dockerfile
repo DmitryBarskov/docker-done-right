@@ -2,7 +2,7 @@ FROM ruby:3.1.0-alpine
 
 ARG RAILS_ROOT=/docker-done-right
 ARG PACKAGES="vim openssl-dev postgresql-dev mongodb-tools build-base \
-  curl less tzdata git postgresql-client bash screen"
+  curl less tzdata git postgresql-client bash screen gcompat"
 
 RUN apk update \
   && apk upgrade \
