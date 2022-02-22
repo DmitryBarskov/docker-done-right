@@ -1,6 +1,9 @@
 # Docker done right
 
-For development purposes only
+For development purposes only.
+The idea is that you enter a docker container and
+you can run your application as usual on your host machine
+but it has all system dependecies installed.
 
 ## Index
 
